@@ -10,3 +10,5 @@ for _ in range(10):
 
 #taek an input from user of grade
 grade = int(input("Enter your grade: "))
+
+#grade check
