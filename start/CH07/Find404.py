@@ -16,3 +16,13 @@ with open (log_file_path, 'r') as file:
     log_lines = file.readlines()
 
 print(log_lines)
+
+status_code_counts = defaultdict(int)
+
+for line in log_lines:
+    match = re.search(r'\" \d{3} ', line')
+    if match:
+        status_code = match.group().strip().split()[1]
+        status_code_counts[status_code] +=1
+
+print("Status Code Distribution: ")
