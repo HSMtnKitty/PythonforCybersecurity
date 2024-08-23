@@ -15,7 +15,7 @@ def get_dad_jokes():
         joke_data = response.json()
 
         print(joke_data['joke'])
-    else print(f"Failed to retrieve joke. Status code: {response.status_code}")
+    else: print(f"Failed to retrieve joke. Status code: {response.status_code}")
 
 print(get_dad_jokes())
 if __name__ == "__main__":
