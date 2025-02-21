@@ -43,7 +43,7 @@ while True:
 
 # Encrypt our message
 encrypted_message = Caesar_cipher(message, shift)
-print(f"Encrypted Message: {encrypted_message}")
+print(f"Encrypted Message: {encrypted_message}")    
 
 #Decryption
 decrypt_choice = input("Do you want to decrypt yes or no?").strip().lower()
