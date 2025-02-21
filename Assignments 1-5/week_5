@@ -24,6 +24,7 @@ def Caesar_cipher(text, shift, decrypt=False):
             result += chr(new_char)
         else:
             result += char
+
     return result
 
 
