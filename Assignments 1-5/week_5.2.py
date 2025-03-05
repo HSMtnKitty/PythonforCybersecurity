@@ -1,6 +1,6 @@
-"""
-We are going to create an AES encryption and decryption tool
-"""
+
+# We are going to create an AES encryption and decryption tool
+
 
 # Import the modules needed to run our code
 import os
@@ -17,7 +17,7 @@ def generate_key():
 
 def encrypt(plaintext: str, key: bytes) -> str:
     iv = os.urandom(16)
-    cipher = Cipher(algorithms.AES(key), mode.CBC(iv), backend=default_backend()).encryptor
+    cipher = Cipher(algorithms.AES(key), mode.CBC(iv), backend=default_backend()).encryptor()
     padder = padding.PKCS7(128).padder
     padded_data = padder.update(plaintext.encode()) + padder.finalize()
     ciphertext = cipher.update(padded_data) + cipher.finalize()
@@ -26,7 +26,7 @@ def encrypt(plaintext: str, key: bytes) -> str:
 def decrypt(encrypted_text: str, key: bytes) -> str:
     encrypted_data = base64.b64decode(encrypted_text)
     iv, ciphertext = encrypted_data[:16], encrypted_data[16:]
-    cipher = Cipher(algorithms.AES(key), modes.CBC(iv), backend=default_backend()).decryptor
+    cipher = Cipher(algorithms.AES(key), modes.CBC(iv), backend=default_backend()).decryptor()
     padded_plaintext = cipher.update(ciphertext) + cipher.finalize()
     unpadder = padding.PKCS7(128).unpadder
     return (unpadder.update(padded_plaintext) + unpadder.finalize()).decode
